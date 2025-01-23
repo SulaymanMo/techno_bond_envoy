@@ -3,7 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/theme/text_theme.dart';
 import '../../../../lang/locale_keys.g.dart';
-import '../manager/home_manager/home_cubit.dart';
+import '../manager/home_cubit.dart';
 import 'home_view.dart';
 import 'settings_view.dart';
 import 'package:sizer/sizer.dart';
@@ -94,11 +94,11 @@ class _NavViewState extends State<NavView> {
           color: Colors.black, // unselected icon color
           activeColor: Colors.black, // selected icon and text color
           iconSize: 20.sp, // tab button icon size
-          padding: EdgeInsets.all(4.w),
+          padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 4.w),
           backgroundColor: Colors.green.shade50,
           tabMargin: Platform.isIOS
-              ? EdgeInsets.fromLTRB(12.w, 2.w, 12.w, 6.w)
-              : EdgeInsets.symmetric(horizontal: 12.w, vertical: 2.w),
+              ? EdgeInsets.fromLTRB(6.w, 2.w, 6.w, 6.w)
+              : EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.w),
           textStyle: AppText.medium15(),
           duration: const Duration(milliseconds: 300),
           tabs: List.generate(

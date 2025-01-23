@@ -19,12 +19,12 @@ class ListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: StatusColors.getColor(status, 0),
+      color: StatusColors.getColor(order.status, 0),
       child: InkWell(
         onTap: onTap,
         child: Padding(
           padding: EdgeInsets.all(4.w),
-          child: InfoSection(status: status, order: order),
+          child: InfoSection(order: order),
         ),
       ),
     );

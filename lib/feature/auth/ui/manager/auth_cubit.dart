@@ -1,8 +1,7 @@
+import '../../data/repo/auth_repo.dart';
 import '../../data/model/login_model.dart';
 import '../../data/model/request_login.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../data/repo/auth_impl.dart';
 
 part 'auth_state.dart';
 

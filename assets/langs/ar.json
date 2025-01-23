@@ -9,11 +9,13 @@
     "counting": "جار العد",
     "results": "النتائج",
     "acceptAction": "أوافق",
-    "currentOrder": "الطلب الحالي",
-    "availableOrder": "طلب متاح",
-    "availableOrders": "الطلبات المتاحة",
+    
+    "allOrders": "كل الطلبات",
+    "waitingOrder": "المنتظرة",
+    "onDelivered": "قيد التوصيل",
     "delivered": "تم التوصيل",
     "unknownStatus": "حالة غير معروفة",
+
     "home": "الرئيسية",
     "settings": "الإعدادات",
     "enterOtp": "أدخل رمز التحقق !",

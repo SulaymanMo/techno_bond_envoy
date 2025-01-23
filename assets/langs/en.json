@@ -9,11 +9,13 @@
     "noCurrent": "There is no order pending delivery",
     "acceptAction": "Accept !",
     "letsTakeIt": "Let's take it !",
-    "currentOrder": "Current order",
-    "availableOrder": "Available order",
-    "availableOrders": "All available orders",
+
+    "allOrders": "All orders",
+    "onDelivered": "Current order",
+    "waitingOrder": "Available order",
     "delivered": "Delivered",
     "unknownStatus": "Unknown status",
+    
     "home": "Home",
     "settings": "Settings",
     "enterOtp": "Enter OTP !",

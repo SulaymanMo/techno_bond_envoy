@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../widget/custom_list_tile.dart';
 import '../../../../lang/locale_keys.g.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../manager/home_manager/home_cubit.dart';
+import '../manager/home_cubit.dart';
 import '../../../../core/common/network_img.dart';
 import 'package:easy_localization/easy_localization.dart';
 

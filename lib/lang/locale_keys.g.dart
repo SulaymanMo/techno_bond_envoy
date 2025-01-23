@@ -11,9 +11,9 @@ abstract class  LocaleKeys {
   static const counting = 'counting';
   static const results = 'results';
   static const acceptAction = 'acceptAction';
-  static const currentOrder = 'currentOrder';
-  static const availableOrder = 'availableOrder';
-  static const availableOrders = 'availableOrders';
+  static const allOrders = 'allOrders';
+  static const waitingOrder = 'waitingOrder';
+  static const onDelivered = 'onDelivered';
   static const delivered = 'delivered';
   static const unknownStatus = 'unknownStatus';
   static const home = 'home';

@@ -1,11 +1,12 @@
 import 'package:intl/intl.dart';
 
 class OrderModel {
-  final int id;
+  final int id, status;
   final String invoice, notesBefore, createdDate, clientName, clientPhone;
 
   const OrderModel({
     required this.id,
+    required this.status,
     required this.invoice,
     required this.notesBefore,
     required this.createdDate,
@@ -29,6 +30,7 @@ class OrderModel {
 
     return OrderModel(
       id: json['id'],
+      status: json['status'],
       invoice: "$invoicePath${json['invoice']}",
       notesBefore: "${json['notes_before'] ?? ""}",
       createdDate:

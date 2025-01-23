@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../helper/determine_status.dart';
 
 class StatusCard extends StatelessWidget {
-  final String status;
+  final int status;
   const StatusCard({super.key, required this.status});
 
   @override
@@ -31,6 +31,4 @@ class StatusCard extends StatelessWidget {
       ),
     );
   }
-
-  // String _capitalize() => status[0].toUpperCase() + status.substring(1);
 }

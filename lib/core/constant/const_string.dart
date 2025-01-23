@@ -26,8 +26,6 @@ final class ImgPath {
   static const String otpLottie = "assets/animation/otp.json";
   static const String loadingLottie = "assets/animation/loading.json";
   static const String successLottie = "assets/animation/success.json";
-  // static const String loadingLottie = "assets/animation/loading.json";
-  // static const String successLottie = "assets/animation/success.json";
 }
 
 // ! _____ Apis _____ ! //
@@ -36,7 +34,6 @@ final class ConstApi {
   static const String secretKey = "Bearer 96437f7bc5f8d7c2149bad018e545eec";
   static const String loginEP = "sales/auth/login";
   static const String homeEP = "sales/home";
-  static const String acceptEP = "sales/orders/accept";
 }
 
 final class ConstNum {

@@ -7,16 +7,10 @@ import '../helper/make_phone_call.dart';
 import '../../feature/home/data/model/order_model.dart';
 
 class InfoSection extends StatelessWidget {
-  final String status;
   final TextStyle? style;
   final OrderModel order;
 
-  const InfoSection({
-    super.key,
-    this.style,
-    required this.status,
-    required this.order,
-  });
+  const InfoSection({super.key, this.style, required this.order});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +31,7 @@ class InfoSection extends StatelessWidget {
             child: Row(
               children: [
                 Icon(Iconsax.calendar_1,
-                    color: StatusColors.getColor(status, 2)),
+                    color: StatusColors.getColor(order.status, 2)),
                 SizedBox(width: 2.w),
                 Flexible(
                   child: Text(
@@ -53,7 +47,8 @@ class InfoSection extends StatelessWidget {
           ),
           subtitle: Row(
             children: [
-              Icon(Iconsax.mobile, color: StatusColors.getColor(status, 2)),
+              Icon(Iconsax.mobile,
+                  color: StatusColors.getColor(order.status, 2)),
               SizedBox(width: 2.w),
               Text(
                 order.clientPhone,
@@ -62,10 +57,6 @@ class InfoSection extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 style: AppText.regular15(),
               ),
-              // SizedBox(width: 2.w),
-
-              // const Spacer(),
-              // if (status != null) StatusCard(status: status!),
             ],
           ),
           trailing: IconButton(
@@ -74,8 +65,8 @@ class InfoSection extends StatelessWidget {
             },
             style: ElevatedButton.styleFrom(
               shape: const CircleBorder(),
-              foregroundColor: StatusColors.getColor(status, 2),
-              backgroundColor: StatusColors.getColor(status, 1),
+              foregroundColor: StatusColors.getColor(order.status, 2),
+              backgroundColor: StatusColors.getColor(order.status, 1),
             ),
             icon: const Icon(Iconsax.call),
           ),
@@ -85,123 +76,5 @@ class InfoSection extends StatelessWidget {
   }
 }
 
-// class DeliveredInfoSection extends StatelessWidget {
-//   final String status;
-//   final TextStyle? style;
-//   final DeliveredOrderModel order;
-
-//   const DeliveredInfoSection({
-//     super.key,
-//     this.style,
-//     required this.order,
-//     required this.status,
-//   });
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       crossAxisAlignment: CrossAxisAlignment.stretch,
-//       children: [
-//         Text(
-//           order.clientName,
-//           maxLines: 3,
-//           overflow: TextOverflow.ellipsis,
-//           style: style ?? AppText.medium18(),
-//         ),
-//         SizedBox(height: 2.w),
-//         ListTile(
-//           contentPadding: EdgeInsets.zero,
-//           title: Padding(
-//             padding: EdgeInsets.only(bottom: 2.5.w),
-//             child: Row(
-//               children: [
-//                 Icon(Iconsax.calendar_1,
-//                     color: StatusColors.getColor(status, 2)),
-//                 SizedBox(width: 2.w),
-//                 Flexible(
-//                   child: Text(
-//                     order.createdDate,
-//                     maxLines: 1,
-//                     overflow: TextOverflow.ellipsis,
-//                     style: AppText.regular15(),
-//                   ),
-//                 ),
-//               ],
-//             ),
-//           ),
-//           subtitle: Row(
-//             children: [
-//               Icon(Iconsax.mobile, color: StatusColors.getColor(status, 2)),
-//               SizedBox(width: 2.w),
-//               Text(
-//                 "${order.clientPhone}",
-//                 maxLines: 1,
-//                 textDirection: TextDirection.ltr,
-//                 overflow: TextOverflow.ellipsis,
-//                 style: AppText.regular15(),
-//               ),
-//               // SizedBox(width: 2.w),
-
-//               // const Spacer(),
-//               // if (status != null) StatusCard(status: status!),
-//             ],
-//           ),
-//           trailing: IconButton(
-//             onPressed: () async {
-//               await makePhoneCall("${order.clientPhone}");
-//             },
-//             style: ElevatedButton.styleFrom(
-//               shape: const CircleBorder(),
-//               foregroundColor: StatusColors.getColor(status, 2),
-//               backgroundColor: StatusColors.getColor(status, 1),
-//             ),
-//             icon: const Icon(Iconsax.call),
-//           ),
-//         ),
-//         // ! -------------------
-//         // Row(
-//         //   children: [
-//         //     Icon(Iconsax.calendar_1, color: StatusColors.getColor(status, 2)),
-//         //     SizedBox(width: 2.w),
-//         //     Flexible(
-//         //       child: Text(
-//         //         order.createdDate,
-//         //         maxLines: 1,
-//         //         overflow: TextOverflow.ellipsis,
-//         //         style: AppText.regular15(),
-//         //       ),
-//         //     ),
-//         //   ],
-//         // ),
-//         // Row(
-//         //   children: [
-//         //     Icon(Iconsax.mobile, color: StatusColors.getColor(status, 2)),
-//         //     SizedBox(width: 2.w),
-//         //     Expanded(
-//         //       child: Text(
-//         //         "${order.clientPhone}",
-//         //         maxLines: 1,
-//         //         overflow: TextOverflow.ellipsis,
-//         //         style: AppText.regular15(),
-//         //       ),
-//         //     ),
-//         //     SizedBox(width: 2.w),
-//         //     IconButton(
-//         //       onPressed: () async {
-//         //         await makePhoneCall("${order.clientPhone}");
-//         //       },
-//         //       style: ElevatedButton.styleFrom(
-//         //         shape: const CircleBorder(),
-//         //         foregroundColor: StatusColors.getColor(status, 2),
-//         //         backgroundColor: StatusColors.getColor(status, 1),
-//         //       ),
-//         //       icon: const Icon(Iconsax.call),
-//         //     ),
-//         //     // const Spacer(),
-//         //     // if (status != null) StatusCard(status: status!),
-//         //   ],
-//         // ),
-//       ],
-//     );
 //   }
 // }

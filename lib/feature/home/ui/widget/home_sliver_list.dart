@@ -6,8 +6,8 @@ import '../../../../lang/locale_keys.g.dart';
 import '../../../../core/theme/text_theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
-import '../../../details/ui/widget/show_details.dart';
-import '../manager/home_manager/home_cubit.dart';
+import '../../../details/widget/show_details.dart';
+import '../manager/home_cubit.dart';
 import 'list_item.dart';
 import 'card_loading.dart';
 
@@ -32,13 +32,9 @@ class HomeSliverList extends StatelessWidget {
                     showDetails(
                       context,
                       order: orders[index],
-                      status: "available",
+                      status: orders[index].status,
                       isAvaliable: context.read<HomeCubit>().isCurrent,
-                      onPressed: () async {
-                        // await context
-                        //     .read<AcceptOrderCubit>()
-                        //     .acceptOrder(orders[index].id);
-                      },
+                      onPressed: () {},
                     );
                   },
                 );
