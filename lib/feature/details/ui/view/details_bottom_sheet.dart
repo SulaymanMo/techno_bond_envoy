@@ -61,27 +61,6 @@ class DetailsBottomSheet extends StatelessWidget {
           Text(context.tr(LocaleKeys.overview), style: AppText.medium16()),
           SizedBox(height: 2.w),
           Notice(order: order, status: status),
-          SizedBox(height: 4.w),
-          if (status == "available")
-            ElevatedButton(
-              onPressed: () {
-                onPressed();
-              },
-              style: ElevatedButton.styleFrom(
-                foregroundColor: StatusColors.getColor(status, 2),
-                backgroundColor: StatusColors.getColor(status, 1),
-              ),
-              child: Text(context.tr(LocaleKeys.acceptAction)),
-            ),
-          if (status == "current")
-            ElevatedButton(
-              onPressed: isAvailable ? onPressed : null,
-              style: ElevatedButton.styleFrom(
-                foregroundColor: StatusColors.getColor(status, 2),
-                backgroundColor: StatusColors.getColor(status, 1),
-              ),
-              child: Text(context.tr(LocaleKeys.letsTakeIt)),
-            ),
         ],
       ),
     );

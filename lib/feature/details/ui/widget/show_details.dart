@@ -1,12 +1,10 @@
 import 'dart:ui';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 import 'package:techno_bond_envoy/core/constant/extension.dart';
 import '../../../../core/constant/colory.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/constant/const_string.dart';
 import '../../../home/data/model/order_model.dart';
-import '../manager/accept_order_manager/accept_order_cubit.dart';
 import '../view/details_bottom_sheet.dart';
 
 void showDetails(
@@ -32,24 +30,21 @@ void showDetails(
     backgroundColor: StatusColors.getColor(status, 0),
     builder: (_) {
       return Scaffold(
-        body: BlocProvider<AcceptOrderCubit>.value(
-          value: context.read<AcceptOrderCubit>(),
-          child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
-            child: DetailsBottomSheet(
-              order: order,
-              status: status,
-              onPressed: () async {
-                context.nav.pop();
-                await Future.delayed(
-                  const Duration(milliseconds: ConstNum.duration),
-                  () {
-                    onPressed();
-                  },
-                );
-              },
-              isAvailable: isAvaliable,
-            ),
+        body: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
+          child: DetailsBottomSheet(
+            order: order,
+            status: status,
+            onPressed: () async {
+              context.nav.pop();
+              await Future.delayed(
+                const Duration(milliseconds: ConstNum.duration),
+                () {
+                  onPressed();
+                },
+              );
+            },
+            isAvailable: isAvaliable,
           ),
         ),
       );

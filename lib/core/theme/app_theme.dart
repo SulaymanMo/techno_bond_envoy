@@ -13,29 +13,23 @@ ThemeData appTheme() {
       titleTextStyle: AppText.semi20(),
     ),
     // ! _____ TabBar _____ ! //
-    // tabBarTheme: TabBarTheme(
-    //   dividerHeight: 0,
-    //   tabAlignment: TabAlignment.center,
-    //   labelColor: Colory.yellow.color,
-    //   // dividerColor: Colors.transparent,
-    //   indicatorSize: TabBarIndicatorSize.tab,
-    //   unselectedLabelColor: Colors.white70,
-    //   // splashFactory: NoSplash.splashFactory,
-    //   labelStyle: TextStyle(
-    //     fontSize: 15.sp,
-    //     letterSpacing: .2,
-    //     fontWeight: FontWeight.w500,
-    //   ),
-    //   unselectedLabelStyle: TextStyle(fontSize: 15.sp, letterSpacing: .2),
-    //   labelPadding: EdgeInsets.symmetric(horizontal: 6.w),
-    //   // overlayColor: const WidgetStatePropertyAll(Colors.transparent),
-    //   indicator: ShapeDecoration(
-    //     shape: StadiumBorder(
-    //       side: BorderSide(color: Colory.yellow.color, width: .5.w),
-    //     ),
-    //   ),
-    // ),
-// ! _____ Text Theme _____ ! //
+    tabBarTheme: TabBarTheme(
+      dividerHeight: 0,
+      tabAlignment: TabAlignment.start,
+      labelColor: Colors.green.shade800,
+      indicatorSize: TabBarIndicatorSize.tab,
+      unselectedLabelColor: Colors.grey.shade700,
+      labelStyle: AppText.medium16(),
+      unselectedLabelStyle: AppText.medium16(),
+      labelPadding: EdgeInsets.symmetric(horizontal: 4.w, vertical: .5.w),
+      overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+      indicator: ShapeDecoration(
+        shape: StadiumBorder(
+          side: BorderSide(color: Colors.green.shade800, width: .3.w),
+        ),
+      ),
+    ),
+    // ! _____ Text Theme _____ ! //
     // textTheme: textTheme(),
     // ! _____ TextButton Theme _____ ! //
     textButtonTheme: TextButtonThemeData(

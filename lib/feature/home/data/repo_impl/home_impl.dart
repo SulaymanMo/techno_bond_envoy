@@ -17,12 +17,13 @@ class HomeImpl implements HomeRepo {
   static HomeImpl get instance => _instance ??= const HomeImpl._();
 
   @override
-  Future<Either<Failure, OrderData>> fetchOrders() async {
+  Future<Either<Failure, OrderData>> fetchOrders(int? status) async {
     try {
       final LoginDataModel user = _invokeUserModel();
       final response = await _apiService.get(
         userId: user.id,
-        endPoint: ConstApi.homeEP,
+        endPoint:
+            "${ConstApi.homeEP}${status != null ? "?status=$status" : ""}",
         userToken: user.token,
       );
       final model = OrderResponse.fromJson(response);

@@ -3,5 +3,5 @@ import '../model/order_data.dart';
 import '../../../../core/helper/failure.dart';
 
 abstract class HomeRepo {
-  Future<Either<Failure, OrderData>> fetchOrders();
+  Future<Either<Failure, OrderData>> fetchOrders(int? status);
 }

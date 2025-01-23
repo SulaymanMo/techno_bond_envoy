@@ -34,11 +34,9 @@ final class ImgPath {
 final class ConstApi {
   static const String baseUrl = "https://technobond.net/classes/api";
   static const String secretKey = "Bearer 96437f7bc5f8d7c2149bad018e545eec";
-  static const String loginEP = "driver/auth/login";
-  static const String homeEP = "driver/home";
-  static const String acceptEP = "driver/orders/accept";
-  static const String receiveOrderEP = "driver/orders/receive";
-  static const String deliveredOrdersEP = "driver/orders/deliverd";
+  static const String loginEP = "sales/auth/login";
+  static const String homeEP = "sales/home";
+  static const String acceptEP = "sales/orders/accept";
 }
 
 final class ConstNum {

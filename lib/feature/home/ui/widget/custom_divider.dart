@@ -14,7 +14,7 @@ class CustomDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: Padding(
-        padding: EdgeInsets.only(top: 8.w, left: 6.w, right: 6.w),
+        padding: EdgeInsets.only(top: 3.w, left: 6.w, right: 6.w),
         child: Row(
           spacing: 3.w,
           // mainAxisAlignment: MainAxisAlignment.center,

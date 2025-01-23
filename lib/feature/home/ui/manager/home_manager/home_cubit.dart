@@ -14,17 +14,17 @@ class HomeCubit extends Cubit<HomeState> {
   final HomeRepo _repo = HomeImpl.instance;
   HomeCubit() : super(HomeInitial());
 
-  Future<void> getOrders() async {
+  Future<void> getOrders(int? status) async {
     if (state is HomeLoading) return;
     emit(HomeLoading());
-    final result = await _repo.fetchOrders();
+    final result = await _repo.fetchOrders(status);
     result.fold(
       (failure) {
         emit(HomeFailure(failure.ex));
       },
       (orderData) {
-        isCurrent = orderData.currentOrder != null;
-        ordersLength = orderData.orders!.length;
+        // isCurrent = orderData.currentOrder != null;
+        // ordersLength = orderData.orders!.length;
         emit(HomeSuccess(orderData));
       },
     );
