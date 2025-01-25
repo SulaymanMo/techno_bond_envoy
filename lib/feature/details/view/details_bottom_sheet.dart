@@ -25,7 +25,7 @@ class DetailsBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 6.w, right: 6.w, bottom: 6.w),
+      padding: EdgeInsets.only(left: 6.w, right: 6.w),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,

@@ -1,7 +1,7 @@
 import 'package:sizer/sizer.dart';
 import '../../../../core/constant/colory.dart';
 import '../../../../lang/locale_keys.g.dart';
-import '../widget/home_sliver_list.dart';
+import '../widget/home_list.dart';
 import '../widget/welcome_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -52,6 +52,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     final read = context.read<HomeCubit>();
     return RefreshIndicator(
+      color: StatusColors.getColor(_selected == 0 ? -1 : _selected - 1, 2),
       onRefresh: () async {
         await context
             .read<HomeCubit>()
@@ -96,7 +97,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
               ),
             ),
           ),
-          const Expanded(child: HomeSliverList()),
+          const Expanded(child: HomeList()),
         ],
       ),
     );

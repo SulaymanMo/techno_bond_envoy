@@ -5,13 +5,11 @@ import '../../../../core/constant/colory.dart';
 import '../../../../core/common/info_section.dart';
 
 class ListItem extends StatelessWidget {
-  final String status;
   final OrderModel order;
   final void Function()? onTap;
 
   const ListItem({
     super.key,
-    required this.status,
     required this.onTap,
     required this.order,
   });

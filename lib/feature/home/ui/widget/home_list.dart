@@ -11,8 +11,8 @@ import '../manager/home_cubit.dart';
 import 'list_item.dart';
 import 'card_loading.dart';
 
-class HomeSliverList extends StatelessWidget {
-  const HomeSliverList({super.key});
+class HomeList extends StatelessWidget {
+  const HomeList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,6 @@ class HomeSliverList extends StatelessWidget {
               padding: EdgeInsets.all(6.w),
               itemBuilder: (_, index) {
                 return ListItem(
-                  status: "available",
                   order: orders[index],
                   onTap: () {
                     showDetails(
@@ -63,13 +62,9 @@ class HomeSliverList extends StatelessWidget {
             separatorBuilder: (_, index) => SizedBox(height: 3.w),
           );
         } else if (state is HomeFailure) {
-          return SliverToBoxAdapter(child: FailureWidget(error: state.error));
+          return FailureWidget(error: state.error);
         } else {
-          return const SliverToBoxAdapter(
-            child: Center(
-              child: CircularProgressIndicator(),
-            ),
-          );
+          return const SizedBox();
         }
       },
     );

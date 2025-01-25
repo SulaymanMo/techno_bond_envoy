@@ -7,7 +7,7 @@ import '../../feature/auth/ui/view/login_view.dart';
 
 // ! _____ App Routes Here (OnGenerate Approach for Example) _____ ! //
 class AppRoutes {
-  static Route<dynamic> generateRoute(RouteSettings settings) {
+  static Route<MaterialPageRoute>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case RoutePath.login:
         return MaterialPageRoute(
@@ -19,13 +19,7 @@ class AppRoutes {
       case RoutePath.home:
         return MaterialPageRoute(builder: (_) => const NavView());
       default:
-        return MaterialPageRoute(
-          builder: (_) => Scaffold(
-            body: Center(
-              child: Text('No route defined for ${settings.name}'),
-            ),
-          ),
-        );
+        return null;
     }
   }
 }

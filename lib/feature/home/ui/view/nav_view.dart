@@ -82,7 +82,7 @@ class _NavViewState extends State<NavView> {
             });
             _controller.animateToPage(
               _currentIndex,
-              curve: Curves.easeInCubic,
+              curve: Curves.easeInOut,
               duration: const Duration(milliseconds: 300),
             );
           },

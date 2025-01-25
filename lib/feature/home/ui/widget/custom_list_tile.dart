@@ -44,7 +44,6 @@ class CustomListTiles extends StatelessWidget {
               style: AppText.regular15(),
             ),
             tileColor: Colors.green.shade100,
-            trailing: const Icon(Iconsax.arrow_right_4),
             onTap: () {
               showModalBottomSheet(
                 context: context,

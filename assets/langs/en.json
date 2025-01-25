@@ -11,8 +11,8 @@
     "letsTakeIt": "Let's take it !",
 
     "allOrders": "All orders",
-    "onDelivered": "Current order",
-    "waitingOrder": "Available order",
+    "waitingOrder": "Pending",
+    "onDelivered": "In Delivery",
     "delivered": "Delivered",
     "unknownStatus": "Unknown status",
     

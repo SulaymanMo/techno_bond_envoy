@@ -47,8 +47,10 @@ class InfoSection extends StatelessWidget {
           ),
           subtitle: Row(
             children: [
-              Icon(Iconsax.mobile,
-                  color: StatusColors.getColor(order.status, 2)),
+              Icon(
+                Iconsax.mobile,
+                color: StatusColors.getColor(order.status, 2),
+              ),
               SizedBox(width: 2.w),
               Text(
                 order.clientPhone,
@@ -71,10 +73,19 @@ class InfoSection extends StatelessWidget {
             icon: const Icon(Iconsax.call),
           ),
         ),
+        SizedBox(height: 1.w),
+        if (order.driver != null)
+          Row(
+            spacing: 2.w,
+            children: [
+              Icon(
+                Iconsax.car,
+                color: StatusColors.getColor(order.status, 2),
+              ),
+              Flexible(child: Text(order.driver!, style: AppText.medium16())),
+            ],
+          ),
       ],
     );
   }
 }
-
-//   }
-// }

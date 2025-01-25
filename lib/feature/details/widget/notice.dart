@@ -13,7 +13,7 @@ class Notice extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: SingleChildScrollView(
-        padding: EdgeInsets.only(bottom: 2.w),
+        padding: EdgeInsets.only(bottom: 6.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

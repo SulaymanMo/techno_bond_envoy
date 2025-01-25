@@ -1,3 +1,4 @@
+import 'package:iconsax/iconsax.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter/material.dart';
 import 'package:techno_bond_envoy/core/constant/extension.dart';
@@ -23,6 +24,7 @@ class LangBottomSheet extends StatelessWidget {
             await context.setLocale(_langs[index]);
             if (context.mounted) context.nav.pop();
           },
+          leading: const Icon(Iconsax.language_square),
           title: Text(_title[index], style: AppText.medium15()),
         );
       },
