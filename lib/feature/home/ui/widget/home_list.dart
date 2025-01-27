@@ -2,6 +2,7 @@ import 'package:sizer/sizer.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:flutter/material.dart';
 import 'package:techno_bond_envoy/core/constant/extension.dart';
+import 'package:techno_bond_envoy/core/service/local_service.dart';
 import '../../../../core/common/failure_widget.dart';
 import '../../../../core/constant/const_string.dart';
 import '../../../../lang/locale_keys.g.dart';
@@ -19,10 +20,15 @@ class HomeList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<HomeCubit, HomeState>(
-      listener: (_, state) {
+      listener: (_, state) async {
         if (state is HomeFailure && state.error == "403") {
-          // print(state.error);
-          context.nav.pushNamedAndRemoveUntil(RoutePath.login, (_) => false);
+          await LocalService.instance.delete(ConstHive.userKey);
+          if (context.mounted) {
+            context.nav.pushNamedAndRemoveUntil(
+              RoutePath.login,
+              (_) => false,
+            );
+          }
         }
       },
       builder: (context, state) {
@@ -50,12 +56,11 @@ class HomeList extends StatelessWidget {
               separatorBuilder: (_, index) => SizedBox(height: 3.w),
             );
           } else {
-            return Column(
-              spacing: 3.w,
-              mainAxisAlignment: MainAxisAlignment.center,
+            return ListView(
+              padding: EdgeInsets.all(6.w),
               children: [
-                SizedBox(height: 3.w),
                 Icon(Iconsax.folder_cloud, size: 38.sp),
+                SizedBox(height: 3.w),
                 Text(
                   context.tr(LocaleKeys.noAvailable),
                   style: AppText.medium16(Colors.grey.shade600),
@@ -70,10 +75,10 @@ class HomeList extends StatelessWidget {
             itemBuilder: (_, index) => const CardLoading(),
             separatorBuilder: (_, index) => SizedBox(height: 3.w),
           );
-        } else if (state is HomeFailure) {
+        } else if (state is HomeFailure && state.error != "403") {
           return FailureWidget(error: state.error);
         } else {
-          return const SizedBox();
+          return ListView(children: const []);
         }
       },
     );

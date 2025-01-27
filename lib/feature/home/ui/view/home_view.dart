@@ -51,63 +51,63 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     final read = context.read<HomeCubit>();
-    return RefreshIndicator(
-      color: StatusColors.getColor(_selected == 0 ? -1 : _selected - 1, 2),
-      onRefresh: () async {
-        await context
-            .read<HomeCubit>()
-            .getOrders(_selected == 0 ? null : _selected - 1);
-      },
-      child: NestedScrollView(
-        headerSliverBuilder: (_, innerBoxIsScrolled) {
-          return [
-            SliverToBoxAdapter(
-              child: WelcomeAppBar(
-                title:
-                    "${context.tr(LocaleKeys.hey)}, ${read.getUser()?.name} 👋",
-              ),
+    return NestedScrollView(
+      headerSliverBuilder: (_, innerBoxIsScrolled) {
+        return [
+          SliverToBoxAdapter(
+            child: WelcomeAppBar(
+              title:
+                  "${context.tr(LocaleKeys.hey)}, ${read.getUser()?.name} 👋",
             ),
-            PinnedHeaderSliver(
-              child: Material(
-                child: TabBar(
-                  isScrollable: true,
-                  padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.w),
-                  controller: _controller,
-                  onTap: (val) async {
-                    _selected = val;
-                    await context
-                        .read<HomeCubit>()
-                        .getOrders(_selected == 0 ? null : _selected - 1);
-                  },
-                  indicator: ShapeDecoration(
-                    shape: StadiumBorder(
-                      side: BorderSide(
-                        width: .3.w,
-                        color: StatusColors.getColor(
-                            _selected == 0 ? -1 : _selected - 1, 2),
-                      ),
+          ),
+          PinnedHeaderSliver(
+            child: Material(
+              child: TabBar(
+                isScrollable: true,
+                padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.w),
+                controller: _controller,
+                onTap: (val) async {
+                  _selected = val;
+                  await context
+                      .read<HomeCubit>()
+                      .getOrders(_selected == 0 ? null : _selected - 1);
+                },
+                indicator: ShapeDecoration(
+                  shape: StadiumBorder(
+                    side: BorderSide(
+                      width: .3.w,
+                      color: StatusColors.getColor(
+                          _selected == 0 ? -1 : _selected - 1, 2),
                     ),
                   ),
-                  tabs: List.generate(
-                    _tabs.length,
-                    (i) => Tab(
-                      child: Text(
-                        _tabs[i],
-                        style: TextStyle(
-                          color: _selected == i
-                              ? StatusColors.getColor(
-                                  _selected == 0 ? -1 : _selected - 1, 2)
-                              : null,
-                        ),
+                ),
+                tabs: List.generate(
+                  _tabs.length,
+                  (i) => Tab(
+                    child: Text(
+                      _tabs[i],
+                      style: TextStyle(
+                        color: _selected == i
+                            ? StatusColors.getColor(
+                                _selected == 0 ? -1 : _selected - 1, 2)
+                            : null,
                       ),
                     ),
                   ),
                 ),
               ),
             ),
-          ];
+          ),
+        ];
+      },
+      body: RefreshIndicator(
+        color: StatusColors.getColor(_selected == 0 ? -1 : _selected - 1, 2),
+        onRefresh: () async {
+          await context
+              .read<HomeCubit>()
+              .getOrders(_selected == 0 ? null : _selected - 1);
         },
-        body: const HomeList(),
+        child: const HomeList(),
       ),
     );
   }

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 
 abstract class Failure {
@@ -9,7 +11,6 @@ final class DioFailure extends Failure {
   const DioFailure._(super.ex);
 
   factory DioFailure(DioException dioException) {
-    // print(dioException.error);
     switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
         return const DioFailure._('Connect timeout.');
@@ -25,13 +26,16 @@ final class DioFailure extends Failure {
       case DioExceptionType.cancel:
         return const DioFailure._('Request was canceled.');
       case DioExceptionType.unknown:
-        if (dioException.message == 'SocketException') {
-          return const DioFailure._('Check Internet.');
+        if (dioException.error is FormatException) {
+          return const DioFailure._('403');
         } else {
           return const DioFailure._('Unknown error, Please try later!');
         }
       default:
-        return const DioFailure._('Oops... Please try later!');
+        if (dioException.error is SocketException) {
+          return const DioFailure._('No internet connection');
+        }
+        return const DioFailure._('Oops... Please try later');
     }
   }
 
