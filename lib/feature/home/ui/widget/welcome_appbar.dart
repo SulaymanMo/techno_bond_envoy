@@ -24,7 +24,7 @@ class WelcomeAppBar extends StatelessWidget {
         top: 6.w,
         left: 6.w,
         right: 6.w,
-        bottom: 6.w,
+        bottom: 4.w,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

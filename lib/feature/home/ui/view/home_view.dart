@@ -64,7 +64,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
             child: Material(
               child: TabBar(
                 isScrollable: true,
-                padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.w),
+                padding: EdgeInsets.fromLTRB(6.w, 2.w, 6.w, 0),
                 controller: _controller,
                 onTap: (val) async {
                   _selected = val;
