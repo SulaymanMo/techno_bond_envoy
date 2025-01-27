@@ -9,6 +9,7 @@ final class DioFailure extends Failure {
   const DioFailure._(super.ex);
 
   factory DioFailure(DioException dioException) {
+    print(dioException.error);
     switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
         return const DioFailure._('Connect timeout.');
@@ -36,7 +37,7 @@ final class DioFailure extends Failure {
 
   factory DioFailure._fromResponse(int? code, String msg) {
     if (code == 400 || code == 401 || code == 403) {
-      return DioFailure._(msg);
+      return DioFailure._("$code");
     } else if (code == 404) {
       return DioFailure._(msg);
     } else if (code == 500) {

@@ -1,7 +1,9 @@
 import 'package:sizer/sizer.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:flutter/material.dart';
+import 'package:techno_bond_envoy/core/constant/extension.dart';
 import '../../../../core/common/failure_widget.dart';
+import '../../../../core/constant/const_string.dart';
 import '../../../../lang/locale_keys.g.dart';
 import '../../../../core/theme/text_theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,10 +18,17 @@ class HomeList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeCubit, HomeState>(
+    return BlocConsumer<HomeCubit, HomeState>(
+      listener: (_, state) {
+        if (state is HomeFailure) {
+          // print(state.error);
+          // context.nav.pushNamedAndRemoveUntil(RoutePath.login, (_) => false);
+        }
+      },
       builder: (context, state) {
         if (state is HomeSuccess) {
           final orders = state.data.orders;
+          // print(orders?.length);
           if (orders != null && orders.isNotEmpty) {
             return ListView.separated(
               itemCount: orders.length,
