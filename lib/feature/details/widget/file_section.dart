@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:sizer/sizer.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -32,13 +34,21 @@ class FileSection extends StatelessWidget {
             minVerticalPadding: 2.w,
             trailing: IconButton(
               onPressed: () async {
-                FileService service = FileService();
-                await service.downloadFile(
-                  context,
-                  order.invoice,
-                  order.invoice,
-                  "${order.clientName}-${order.id}",
-                );
+                FileService service = FileService.instance;
+                if (Platform.isAndroid) {
+                  await service.downloadFile(
+                    context,
+                    order.invoice,
+                    order.invoice,
+                    "${order.clientName}-${order.id}",
+                  );
+                } else {
+                  await service.downloadAndOpenFileForIos(
+                    order.invoice,
+                    order.invoice,
+                    "${order.clientName}-${order.id}",
+                  );
+                }
               },
               style: ElevatedButton.styleFrom(
                 shape: const CircleBorder(),
@@ -57,9 +67,3 @@ class FileSection extends StatelessWidget {
     );
   }
 }
-
-//         ),
-//       ],
-//     );
-//   }
-// }
