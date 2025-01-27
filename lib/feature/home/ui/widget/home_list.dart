@@ -20,9 +20,9 @@ class HomeList extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<HomeCubit, HomeState>(
       listener: (_, state) {
-        if (state is HomeFailure) {
+        if (state is HomeFailure && state.error == "403") {
           // print(state.error);
-          // context.nav.pushNamedAndRemoveUntil(RoutePath.login, (_) => false);
+          context.nav.pushNamedAndRemoveUntil(RoutePath.login, (_) => false);
         }
       },
       builder: (context, state) {

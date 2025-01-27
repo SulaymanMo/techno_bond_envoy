@@ -9,7 +9,7 @@ final class DioFailure extends Failure {
   const DioFailure._(super.ex);
 
   factory DioFailure(DioException dioException) {
-    print(dioException.error);
+    // print(dioException.error);
     switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
         return const DioFailure._('Connect timeout.');
