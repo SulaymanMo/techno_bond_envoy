@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:techno_bond_envoy/core/constant/extension.dart';
 import '../../../../core/theme/text_theme.dart';
 import '../../../../lang/locale_keys.g.dart';
 import '../manager/home_cubit.dart';
@@ -102,7 +101,7 @@ class _NavViewState extends State<NavView> {
                   6.w,
                   0,
                   6.w,
-                  6.w + context.mediaQuery.padding.bottom,
+                  3.w,
                 )
               : EdgeInsets.fromLTRB(6.w, 0, 6.w, 2.w),
           textStyle: AppText.medium15(),
